@@ -94,7 +94,7 @@ While loops have a slightly different syntax and will keep looping until some co
     HTTM['title']
     var property = prompt('Which property do we want to check?');
     console.log(HTTM.property) // this won't work
-    bracket notation is the only way to look up dynamic properties on an object
+    // bracket notation is the only way to look up dynamic properties on an object
     console.log(HTTM[property]);
     HTTM.year = 2013;
     HTTM['ye' + 'ar'] = 2013;
