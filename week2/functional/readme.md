@@ -1,7 +1,7 @@
 # Functional Style Programming
 
 ## Preface
-What does it mean when program is written in a "Functional style?"
+What does it mean when a program is written in a "Functional style?"
 
 Functional style programming is often explained using phrases like "functions as first-class objects/citizens" and "eliminating side effects". To programmers just starting their JS journey, statements like these can be daunting!
 
