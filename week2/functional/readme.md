@@ -3,11 +3,20 @@
 ## Preface
 What does it mean when program is written in a "Functional style?"
 
-Functional style programming is often explained using phrases like "functions as first-class objects" and "eliminating side effects". To programmers just starting their JS journey, statements like these can be daunting!
+Functional style programming is often explained using phrases like "functions as first-class objects/citizens" and "eliminating side effects". To programmers just starting their JS journey, statements like these can be daunting!
 
 There are really only two concepts that need to be understood to get a handle on the "functional style".
-* Immutability (do not make changes to the original structure)
-* Statelessness (should perform a task as if it were the first time, keeps no state between calls [static])
+
+* Immutability
+* Construction
+
+* High Order Functions: functions that take functions (callbacks) as arguments or return functions as a result (functions in JS can be first-class citizens)
+* Pure Functions
+    - are immutable (do not have side effects)*
+    - always return NEW values that can be used and/or thrown away (construction)
+* Immutability: (changes are never made to the original structure)
+* Statelessness: (should perform a task as if it were the first time, keeps no state between calls [static])
+* Composability: (can form complex functionality using simple pieces)
 
 In the simplest terms, the real benefit of adopting a functional style is that our programs can be broken down into smaller, simpler pieces that are both more reliable and easier to understand.
 
