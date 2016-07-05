@@ -10,7 +10,7 @@ There are really only two concepts that need to be understood to get a handle on
 * Immutability: (changes are never made to the original structure) [this is the no side effects reference]
 * Construction: (always return NEW values that can be used and/or thrown away)
 
-## Deeper into the Concepts
+### Deeper into the Concepts
 * High Order Functions: functions that take functions (callbacks) as arguments or return functions as a result [functions in JS can be first-class citizens, in that they can be passed around as a parameter to another function, can be returned in another function, and can be assigned a type]
 * Statelessness: should perform a task as if it were the first time, keeps no state between calls [static]
 * Composability: can form complex functionality using simple pieces
