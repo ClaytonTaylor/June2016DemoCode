@@ -37,12 +37,9 @@ In the simplest terms, the real benefit of adopting a functional style is that o
 ### Functional
 ```javascript
     var chooseOne = ['charmander','bulbasaur','squirtle'];
-
-
     var capticalChooseOne = chooseOne.map(function(pokemon){
         return pokemon.toUpperCase();
     })
-
     console.log(chooseOne, capticalChooseOne);
 ```
 
