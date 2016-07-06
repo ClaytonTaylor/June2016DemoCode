@@ -1,0 +1,18 @@
+#megaman {
+    background: transparent url("http://3.bp.blogspot.com/-q0CJBWRLWUs/T_z2_c7TunI/AAAAAAAABPk/rS7fmE1P-B4/s1600/megaman7.png") no-repeat;
+    background-position: 0 0;
+    width: 58px;
+    height: 60px;
+}
+
+#megaman.frame1 {
+    width: 58px;
+    height: 60px;
+    background-position: 0 -58px;
+}
+
+#megaman.frame2 {
+    width: 58px;
+    height: 60px;
+    background-position: 0 -114px;
+}
