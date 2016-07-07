@@ -15,16 +15,37 @@ Today's pre-lecture warmup will cover some CSS basics from the beginning of the 
         <head>
             <style>
                 #wrapper {
-
+                    /* what properties go here? */
+                }
+                p {
+                    text-align: center;
                 }
             </style>
         </head>
         <body>
-            <div id="wrapper">
+            <section id="wrapper">
                 <p>I am in the center!</p>
-            </div>
+            </section>
         </body>
     </html>
 ```
 
-2. 
+2. Make a 5x5 grid of colored squares using divs and the provided code
+
+```html
+    <html>
+        <head>
+            <style>
+                .box {
+                    /* width: ? */
+                    /* what other styles are needed? */
+                }
+            </style>
+        </head>
+        <body>
+            <section id="wrapper">
+                <!-- what goes here? -->
+            </section>
+        </body>
+    </html>
+```
