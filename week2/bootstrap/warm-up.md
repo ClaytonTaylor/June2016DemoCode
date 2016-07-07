@@ -8,7 +8,10 @@ Today's pre-lecture warmup will cover some CSS basics from the beginning of the 
 
 ## Exercises
 
-1. Center the following `wrapper` using CSS
+#### Exercise 1
+
+Center the following `wrapper` using CSS
+
 ```html
     <html>
         <head>
@@ -28,7 +31,11 @@ Today's pre-lecture warmup will cover some CSS basics from the beginning of the 
         </body>
     </html>
 ```
-2. Make a 5x5 grid of colored squares using divs and the provided code
+
+#### Exercise 2
+
+Make a 5x5 grid of colored squares using divs and the provided code
+
 ```html
     <html>
         <head>
