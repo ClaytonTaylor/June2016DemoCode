@@ -1,0 +1,12 @@
+html,body {
+    background-color: #ddd;
+}
+
+#wrapper {
+    background-color: #efefef;
+    min-height: 200px;
+}
+
+.row [class^="col-md-"] {
+    min-height: 100px;
+}
