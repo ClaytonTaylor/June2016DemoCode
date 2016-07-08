@@ -1,44 +1,32 @@
-# awesome aliases
+# how to write a comment!
 
-# vars
-export ALIASES="$HOME/.bash_aliases"
-# export EDITOR="vim"
-export EDITOR="nano"
+# echo - prints out whatever string follows echo
+# echo 'Spiderman is awesome'
 
-# bash
+# declaring environment variables to be loaded in each session
+export PORT=1337
+export REPO='https://github.com/RefactorU/June2016DemoCode.git'
+
+# aliases are awesome! use them!
+alias cloneJune="git clone $REPO"
 alias c="clear"
 alias l="ls -phls"
-alias lt="l -t"
 alias la="l -a"
-alias lg="l | grep "
-alias ports="netstat -antp"
-alias process="ps -A aux | grep"
-alias untar="tar xvf "
-alias untarbz="tar xvjf "
-alias services="sudo service --status-all"
-alias lpath='env | grep PATH'
 
-# files
-alias salias="c && source $ALIASES"
-alias sbashrc="source $HOME/.bashrc"
-alias calias="cat $ALIASES"
-alias ealias="$EDITOR ALIASES"
-alias ealias="$EDITOR $ALIASES"
-alias eprofile="$EDITOR $HOME/.profile"
-alias ebashrc="$EDITOR $HOME/.bashrc"
+alias ealias="nano $HOME/.bash_profile"
+alias salias="source $HOME/.bash_profile"
+alias hello="echo 'hello'"
 
-# git
-alias g="gaa; gcm 'QuickCommit'; gpp"
-alias ga="git add "
-alias gaa="git add --all :/"
-alias gb="git branch"
-alias gc="git commit"
-alias gco="git checkout "
-alias gcam="git commit -am "
-alias gcm="git commit -m "
-alias gs="git status"
-alias gp="git push "
-alias gpl="git pull "
-alias gplb="git pull origin "
-alias gpo="git push origin"
-alias gpp="gpl && gpo"
+# these are very cool too :)
+timestamp() {
+  date +"%T"
+}
+
+#function timestamp {
+#  date +"%T"
+#}
+
+    function backup {
+        cp -r "$1" "$HOME/backup/"
+        mv "$HOME/backup/$(basename $1)" "$HOME/backup/$(basename $1)_$(date)"
+    }
