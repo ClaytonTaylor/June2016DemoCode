@@ -3,40 +3,78 @@
 ## Purpose
 The purpose of this lecture is to make students feel more comfortable and productive at the command-line. By the end of this lecture, students should have a basic understanding of the following concepts:
 
-- The `.bash_profile` file, what it's for, when it's run, etc.
-- How to create variables, and the difference between local and exported variables.
+- Dot files, specifically the `.bash_profile` file, what they are for, when it's run, etc.
+- How to create variables and the difference between local and exported variables.
 - The difference between single and double quotes in BASH.
 - Some intermediate BASH commands that particularly useful
-    - `echo`
-    - `alias`
-    - `less`
-    - `man`
-    - `grep`
-- How to compose more complex commands using shell redirection (>, >>, <, and |)
+- How to compose more complex commands using shell **redirection**
 
-### Commands
-
-`echo`
-- prints stuff on the command line
-
-```bash
-    $ echo "hello world" # simple command to print text on the screen
-```
-
+### Dot files
 `.bash_profile`
 - executes every time you open a new terminal
 - good place for customizing your terminal environment
 
+
+### Useful commands
+> Note: you can separate commands with a semicolon
+
+`echo`
+- prints stuff on the command line
 ```bash
-    $ cat ~/.bash_profile
+    echo "Hello out there!"
+```
+
+`env`
+- see all environment variables loaded into your session
+```bash
+    $ env
+```
+
+`grep`
+- show bits and pieces of STDOUT
+```bash
+    $ env | grep $HOME
+```
+
+`cat`
+- spits out the contents of a file
+```bash
+    $ cat $HOME/.bash_profile
 ```
 
 `alias`
 - set up one command to run another command
-
 ```bash
-    $ alias lsa="ls -a"
-    $ alias subl="open -a '/Applications/Sublime Text 2.app'"
+    $ alias c="clear"
+    $ alias l="ls -phls"
+    $ alias la="l -a"
+    $ alias lg="l | grep "
+    $ alias lt="l -t"
+    # my favorites :)
+    $ alias ealias="$EDITOR $ALIASES"
+    $ alias salias="source $ALIASES"
+```
+
+`source`
+- reloads the contents of a dot file (has other uses, see `man source`)
+```bash
+    $ source $HOME/.bash_profile
+```
+
+`function`
+- like alias, but better!
+```bash
+    function can {
+        cp -r "$1" ~/.Trash
+        rm -r "$1"
+    }
+    # `$1` is the first argument passed into the function. `$2` is the second argument, etc.
+```
+
+`man`
+- look up the manual for a specific command
+```bash
+    $ man ssh
 ```
 
 ### Variables
@@ -53,17 +91,6 @@ The purpose of this lecture is to make students feel more comfortable and produc
     $ # put it in your .bash_profile to make it permanent
 ```
 
-`function` - like alias, but better!
-
-`$1` is the first argument passed into the function. `$2` is the second argument, etc.
-
-```bash
-    function can {
-        cp -r "$1" ~/.Trash
-        rm -r "$1"
-    }
-```
-
 Use `$` to insert other expressions
 
 ```bash
@@ -76,22 +103,25 @@ Use `$` to insert other expressions
 This function copies files to a folder called 'backup', and then renames them by putting a timestamp at the end of the filename.
 
 ```bash
-    function backup
-    {
-            cp -r "$1" "$HOME/backup/"
-            mv "$HOME/backup/$(basename $1)" "$HOME/backup/$(basename $1)_$(date)"
+    function backup {
+        cp -r "$1" "$HOME/backup/"
+        mv "$HOME/backup/$(basename $1)" "$HOME/backup/$(basename $1)_$(date)"
     }
 ```
 
-`grep` - find a line of text with given contents
-
-```bash
-    grep alias ~/.bash_profile # prints every line from the .bash_profile that contains the text 'alias'
-```
-
 ### Shell Redirection (pipe)
-- use output from one command as input to another
-
+- `>  : redirect STDOUT (take the output of a command and [write to]/[overwrite] a file)`
+- `>> : append (take the output of a command and append it to a file)`
+- `<  : redirect STDIN (take the contents of a file and pass it to a command)`
+- `|  : pipeline (take the output of one command and pass it to another)`
 ```bash
-    ls | grep
+    $ echo "file56" > files.txt
+    $ echo "file31" >> files.txt
+    $ echo "file25" >> files.txt
+    $ echo "file77" >> files.txt
+    $ echo "file48" >> files.txt
+
+    $ sort < files.txt
+    $ sort < files.txt > sorted_files.txt
+    $ ls | grep files
 ```
