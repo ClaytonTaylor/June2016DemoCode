@@ -125,3 +125,19 @@ This function copies files to a folder called 'backup', and then renames them by
     $ sort < files.txt > sorted_files.txt
     $ ls | grep files
 ```
+
+### Web commands
+
+`curl`
+- an awesome and very powerful command that can make web requests from the command line with all kinds of options
+```bash
+    # trivial example
+    $ curl https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
+    $ curl https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css -o bootstrap.min.css
+```
+
+`wget`
+- similar to curl, also supports recursive fetching
+```bash
+    wget -r -nH -nd -np https://refactoru-lessons-brandante.c9users.io/June2016DemoCode/week2/bootstrap
+```
