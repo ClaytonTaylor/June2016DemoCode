@@ -12,21 +12,22 @@ alias cloneJune="git clone $REPO"
 alias c="clear"
 alias l="ls -phls"
 alias la="l -a"
+alias sayHello="echo hello"
+alias whatsMyHome="echo $HOME"
 
+# my favs
 alias ealias="nano $HOME/.bash_profile"
 alias salias="source $HOME/.bash_profile"
-alias hello="echo 'hello'"
 
-# these are very cool too :)
+# functions are very cool too :)
+# two ways to make them:
+
+# way 1
 timestamp() {
   date +"%T"
 }
 
-#function timestamp {
-#  date +"%T"
-#}
-
-    function backup {
-        cp -r "$1" "$HOME/backup/"
-        mv "$HOME/backup/$(basename $1)" "$HOME/backup/$(basename $1)_$(date)"
-    }
+# way 2
+# function timestamp {
+#   date +"%T"
+# }
