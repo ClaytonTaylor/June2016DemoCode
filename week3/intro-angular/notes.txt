@@ -1,0 +1,36 @@
+What is Angular?
+
+	Framework
+	SPA
+
+	A strongly opionionated, front-end, MVC framework
+
+	- Strongly Opionionated
+		- All-in-one solution
+			- Doesn't always play well with others
+			- Wants you to do things the 'Angular way'
+		- Don't be dogmatic!  Sometimes the best solution is outside of angular
+
+	-Front-end
+		- Angular is something that only lives in the BROWSER
+		- It DOES have ways of interacting with the back-end, but only lives in the front-end
+
+	- MVC
+		- MVC is an architectural pattern for structuring an application
+
+		M - Model
+			- Raw data that drives your application
+			- Something that describes the structure of your data
+
+		V - View
+			- What the user sees
+			- Visual representation of the MODEL
+
+		C - Controller
+			- Glue between the MODEL and VIEW
+			- Most of your application logic will live here
+
+
+	- Framework
+		- Javascript that someone else wrote so that we can make apps with it
+		- Also has components, elements, etc. that are pre-defined to make our lives easier
