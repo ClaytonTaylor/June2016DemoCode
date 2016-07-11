@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Mad Metrics</title>
+        <style>
+        button {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .veryLongDiv {
+            background: #efefef;
+            height: 1000px
+        }
+        </style>
+    </head>
+    <body>
+        <button id="metrics">Click me for metrics!</button>
+        <div class="veryLongDiv"></div>
+    </body>
+    <script>
+        document.getElementById('metrics')
+            .addEventListener('click', function(e){
+                // event handler || callback
+                console.log(e)
+            })
+    </script>
+</html>
