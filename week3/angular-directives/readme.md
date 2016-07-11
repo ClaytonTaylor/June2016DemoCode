@@ -15,7 +15,7 @@ Students should also become familiar with some basic angular directives, such as
 
 #### In future lectures
 - ng-bind
-- bg-class
+- ng-class
 - ng-controller
 
 # Lecture Notes
