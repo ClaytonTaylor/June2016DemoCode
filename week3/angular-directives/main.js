@@ -23,24 +23,69 @@ angular.module('Zordon')
 		alphaCtrl
 	]);
 
-	// This is the function that represents the controller
-	// We must pass, as parameters, the dependencies we injected above
-	function alphaCtrl($scope){
-		console.log('Controller is working! Ay yai yai yai yai!');
+// This is the function that represents the controller
+// We must pass, as parameters, the dependencies we injected above
+function alphaCtrl($scope){
+	console.log('Controller is working! Ay yai yai yai yai!');
 
-		$scope.greeting = 'Welcome to the Command Center!';
+	$scope.greeting = 'Welcome to the Command Center!';
 
-		$scope.subGreeting = 'Power Rangers ONLY';
+	$scope.subGreeting = 'Power Rangers ONLY';
 
-		$scope.fightPutty = function(){
-			$scope.subGreeting = 'Punch Noises!  The putty disappeared...';
-		}
-
+	$scope.fightPutty = function(){
+		$scope.subGreeting = 'Punch Noises!  The putty disappeared...';
 	}
 
-	// Under the hood, angular will call our controller function and pass in the dependencies we specified (in our injector array) as arguments
-	// alphaCtrl(someBigObj['$scope'], someBigObj['$http'])
+}
 
-	// arr.map(function(currentEl, index){
+// Under the hood, angular will call our controller function and pass in the dependencies we specified (in our injector array) as arguments
+// alphaCtrl(someBigObj['$scope'], someBigObj['$http'])
 
-	// });
+// arr.map(function(currentEl, index){
+
+// });
+
+angular.module('Zordon') // accessing the module
+    // .controller('betaCtrl', [
+    //     '$scope',
+    //     betaCtrl
+    // ]) // the array describes dependecies for the controller we just made
+    .controller('betaCtrl', betaCtrl)
+
+function betaCtrl() {
+    var beta = this
+
+    beta.myBeans = []
+
+    // beta.favoriteBeans = ''
+    beta.beans = 'Black beans'
+    beta.addBeans = function() {
+        // beta.myFavorites came from the ng-model on the
+        // input element and is the text value of that input element
+        beta.myBeans.push(beta.myFavoriteBeans)
+    }
+
+    beta.removeLastBeans = function() {
+        beta.myBeans.pop();
+    }
+
+    beta.beanHover = function() {
+        console.log('HOVER!')
+        beta.beanColor = {'color': 'blue'}
+    }
+
+    beta.processGas = function() {
+        console.log('I have gas', beta.willMakeYouHaveGas)
+    }
+
+    beta.checkSelection = function() {
+        console.log('Selected beans:', beta.beanSelection)
+    }
+
+    beta.beanBlur = function() {
+        console.log('Bean blur!')
+    }
+
+    window.beta = beta // make sure you don't leave this in your code!!
+    // we can do this to debug our app and see the values of our controller in the console
+}
