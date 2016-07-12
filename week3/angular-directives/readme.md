@@ -1,7 +1,7 @@
 # AngularJS Directives
 
 ### Purpose
-The purpose of this lecture is to teach students what a directive is, and how angular uses them to connect your HTML to your JS.
+The purpose of this lecture is to teach students what a directive is, and how angular uses them to connect your HTML to your JavaScript logic.
 
 Students should also become familiar with some basic angular directives, such as:
 
