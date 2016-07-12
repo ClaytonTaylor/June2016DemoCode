@@ -37,12 +37,36 @@ We use `ng-controller` to declare a piece of our app. Controllers are usually ma
 ```html
     <html ng-app="SuperHeros">
         <body>
-            <div ng-controller="TheAvengers"></div>
+            <div ng-controller="TheAvengers">
+                <h1>{{ title }}</h1>
+            </div>
         </body>
     <html>
 ```
 
-It is common convention to use `controller as` syntax when declaring a controller. This allows makes our markup a bit more semantic as well as gives us the ability to use the native JS keyword `this` as opposed to the original convention of `$scope`.
+In our JavaScript:
+
+```javascript
+    angular.module('SuperHeros', [])
+        .controller('TheAvengers', ['$scope', avengersController])
+
+    function avengersController($scope) {
+        $scope.title = "Every team needs a captain!"
+    }
+```
+
+It is now a more common (and preferred) convention to use `controller as` syntax when declaring a controller. This allows makes our markup a bit more semantic as well as gives us the ability to use the native JS keyword `this` as opposed to the original Angular convention of `$scope`.
+
+```html
+    <html ng-app="SuperHeros">
+        <body>
+            <div ng-controller="TheAvengers as avengers">
+                <!-- let's also add a title -->
+                <h1>{{ avengers.title }}</h1>
+            </div>
+        </body>
+    <html>
+```
 
 ```javascript
     angular.module('SuperHeros', [])
@@ -92,13 +116,13 @@ Let's add an input that takes a new name and displays that name below the list c
         <h1>{{ title }}</h1>
         <ul>
             <li ng-repeat="avenger in avengers.heroes">{{ avenger }}</li>
+            <li>{{ avengers.newAvenger }}</li>
         </ul>
         <input type="text" ng-model="avengers.newAvenger" placeholder="Add your hero!"/>
-        <p>{{ avengers.newAvenger }}</p>
     </div>
 ```
 
-If you start typing in this text field, you'll see the content of `<h1>` tag get populated with the same text from the `<input>` field in real-time.
+If you start typing in this text field, you'll see the content of the last `<li>` tag get populated with the same text from the `<input>` field in real-time.
 
 Though not required, it is good practice to initialize the variables that we reference in the markup within our `controller`.
 
@@ -126,9 +150,9 @@ In our HTML:
         <h1>{{ title }}</h1>
         <ul>
             <li ng-repeat="avenger in avengers.heroes">{{ avenger }}</li>
+            <!-- <li>{{ avengers.newAvenger }}</li> -->
         </ul>
         <input type="text" ng-model="avengers.newAvenger" placeholder="Add your hero!"/>
-        <!-- <p>{{ avengers.newAvenger }}</p> -->
         <button ng-click="avengers.addNewHero()">Add<button>
     </div>
 ```
