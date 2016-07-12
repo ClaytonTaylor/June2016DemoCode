@@ -61,7 +61,6 @@ It is now a more common (and preferred) convention to use `controller as` syntax
     <html ng-app="SuperHeros">
         <body>
             <div ng-controller="TheAvengers as avengers">
-                <!-- let's also add a title -->
                 <h1>{{ avengers.title }}</h1>
             </div>
         </body>
