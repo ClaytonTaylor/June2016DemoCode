@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="Zordon">
+	<head>
+		<title>Angular Intro</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+		<script src="main.js"></script>
+        <style>
+            .fullWidth {
+                display: block;
+                margin: 10px;
+            }
+        </style>
+	</head>
+	<body>
+        <!-- <div ng-controller="alpha" ng-init="rangers=['Red Ranger','Blue Ranger','White Ranger','Green Ranger']">
+    		<h1>!!!! --- {{ greeting }} --- !!!!</h1>
+    		<h3 ng-bind="subGreeting"></h3>
+    		<button ng-click="fightPutty()">Fight Putty</button>
+            <p>{{ rangers[0] }}</p>
+        </div> -->
+        <div ng-controller="betaCtrl as beta">
+            <p>{{ beta.beans }}</p>
+            <input type="text" placeholder="Favorite Beans" ng-model="beta.myFavoriteBeans" />
+            <button ng-click="beta.addBeans()">Add Beans</button>
+            <!-- Try to keep using ng-repeat on arrays -->
+            <!--  this is equivalent to saying:
+                for( var index in beans ) {
+                    var beans = beans[index]
+                }
+            -->
+            <p
+                ng-repeat="beans in beta.myBeans track by $index"
+                ng-mouseover="beta.beanHover()"
+                ng-style="beta.beanColor"
+            >
+                {{ beans }}
+            </p>
+            <button class="fullWidth" ng-click="beta.removeLastBeans()">Remove Last Beans</button>
+
+            <input type="checkbox" ng-model="beta.willMakeYouHaveGas" ng-click="beta.processGas()"/> Click Me!
+
+            <select ng-click="beta.checkSelection()" ng-model="beta.beanSelection">
+                <option>Black</option>
+                <option>Pinto</option>
+                <option>Pink</option>
+            </select>
+
+            <input type="text" ng-model="beta.beanBlurValue" placeholder="When I leave this input..." ng-blur="beta.beanBlur()"/>
+        </div>
+	</body>
+</html>

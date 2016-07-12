@@ -99,9 +99,9 @@ In our HTML:
 ```html
     <div ng-controller="TheAvengers as avengers">
         <h1>{{ title }}</h1>
-        <ul>
+        <ol>
             <li ng-repeat="avenger in avengers.heroes">{{ avenger }}</li>
-        </ul>
+        </ol>
     </div>
 ```
 
@@ -113,11 +113,11 @@ Let's add an input that takes a new name and displays that name below the list c
 ```html
     <div ng-controller="TheAvengers as avengers">
         <h1>{{ title }}</h1>
-        <ul>
+        <input type="text" ng-model="avengers.newAvenger" placeholder="Add your hero!"/>
+        <ol>
             <li ng-repeat="avenger in avengers.heroes">{{ avenger }}</li>
             <li>{{ avengers.newAvenger }}</li>
-        </ul>
-        <input type="text" ng-model="avengers.newAvenger" placeholder="Add your hero!"/>
+        </ol>
     </div>
 ```
 
@@ -147,12 +147,12 @@ In our HTML:
 ```html
     <div ng-controller="TheAvengers as avengers">
         <h1>{{ title }}</h1>
-        <ul>
-            <li ng-repeat="avenger in avengers.heroes">{{ avenger }}</li>
-            <!-- <li>{{ avengers.newAvenger }}</li> -->
-        </ul>
         <input type="text" ng-model="avengers.newAvenger" placeholder="Add your hero!"/>
         <button ng-click="avengers.addNewHero()">Add<button>
+        <ol>
+            <li ng-repeat="avenger in avengers.heroes">{{ avenger }}</li>
+            <!-- <li>{{ avengers.newAvenger }}</li> -->
+        </ol>
     </div>
 ```
 
@@ -168,7 +168,7 @@ In our JavaScript:
         this.heroes = ['Captain America', 'Iron Man', 'Thor']
 
         this.addNewHero = function() {
-            this.heros.push(this.newAvenger)
+            this.heroes.push(this.newAvenger)
         }
     }
 ```
