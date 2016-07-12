@@ -80,7 +80,7 @@ It is now a more common (and preferred) convention to use `controller as` syntax
 
 This directive is a favorite of many as it saves developers a ton of work to create many of the same type of DOM elements at a time. Think of it as a `for` loop for HTML!
 
-Let's add an array of names to our controller and use `ng-repeat` to show each of them in their own `<p>` tag in our markup.
+Let's add an array of names to our controller and use `ng-repeat` to show each of them in their own `<li>` tag in our markup.
 
 In our JavaScript:
 
