@@ -1,0 +1,26 @@
+<html ng-app="Wonderland">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    </head>
+    <body ng-controller="whiteRabbit as wrCtrl">
+            {{wrCtrl.message}}
+
+            <button ng-click="wrCtrl.eatWeirdCake($event)">
+                Eat a Weird Cake You Found!
+            </button>
+
+            <!--No event object generated-->
+            <!--<input ng-change="wrCtrl.showFlavor($event)" ng-model="wrCtrl.cakeFlavor">-->
+
+            <input ng-keyup="wrCtrl.showFlavor($event)" ng-model="wrCtrl.cakeFlavor">
+
+            <div ng-click="wrCtrl.drinkWeirdPotion(potion)" ng-repeat="potion in wrCtrl.weirdPotions track by $index">
+                {{potion}}
+            </div>
+
+         <!--<script src="closures.js"></script>-->
+        <script src="rabbitHole.js"></script>
+        <script src="wonderland.js"></script>
+        
+    </body>
+</html>
