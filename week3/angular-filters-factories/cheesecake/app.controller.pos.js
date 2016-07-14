@@ -1,6 +1,9 @@
 angular.module('CakeApp')
-    .controller('MenuOrderController', MenuOrderController)
+    .controller('MenuOrderController', [
+        'CheesecakeFactory',
+        MenuOrderController
+    ])
 
-function MenuOrderController() {
-    
+function MenuOrderController(CheesecakeFactory) {
+
 }

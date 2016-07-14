@@ -23,8 +23,7 @@ function CheesecakeFactory() {
         flavor: 'Chocolate Tutrle',
         price: 13
     }]
-    //
-    //
-    // return {
-    // }
+
+
+    return { }
 }
