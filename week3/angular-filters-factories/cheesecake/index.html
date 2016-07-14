@@ -20,6 +20,7 @@
         <div ng-controller="MenuController as Menu">
             <ul>
                 <h1>{{ Menu.title }}</h1>
+                <input type="text" class="form-control" placeholder="Search" ng-model="Menu.search">
                 <li ng-repeat="item in Menu.items">
                     <!--  Speaking in code: Double mustaches == Angular Expression -->
                     <!--  using a filter in an expression: {{ vaule | builtInfilterFunction }}-->
