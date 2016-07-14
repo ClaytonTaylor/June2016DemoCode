@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="PokeApp">
+<head>
+	<title>NgRepeat</title>
+	<!-- JS file will be pulled in BEFORE the body is loaded -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+</head>
+<body ng-controller="PallettTown as pCtrl">
+
+	<h1>{{ pCtrl.welcomeMessage }}</h1>
+
+	<!-- {{pCtrl.pokemon}} -> throw raw JS data -->
+	<!-- <ul>
+		<li ng-repeat="pokemon in pCtrl.pokemon">
+			{{pokemon}} - {{$even}}
+		</li>
+	</ul> -->
+
+	<!-- Aliasing an index -->
+	<!-- <ul>
+		<li ng-repeat="(pokeIndex, pokemon) in pCtrl.pokemon">
+			{{pokemon}} - {{pokeIndex}}
+		</li>
+	</ul> -->
+
+
+	<!-- ngRepeat over object -->
+	<!-- <div 
+		ng-repeat="(jigKey, jigVal) in pCtrl.jigglyPuff"
+	>
+		
+		<h3>{{jigKey}}</h3>
+		<h5>{{jigVal}}</h5>
+		<hr>	
+
+	</div>
+ -->
+
+<!-- DUPES ERROR, use track by expression to fix -->
+<!--  <ul>
+ 	<li ng-repeat="pokemon in pCtrl.clonedPokemon track by $index">
+ 		{{pokemon}}
+ 	</li>
+ </ul> -->
+
+ <!-- Nested ngRepeats -->
+ <ul>
+ 	<li ng-repeat="(trainerIndex, trainer) in pCtrl.trainers">
+ 		<h3>{{trainer.name}} - {{$index}}</h3>
+ 		<p> Skillz : {{trainer.skill}} </p>
+ 		<!-- {{trainer.badges}} Raw JS data, no good! -->
+
+ 		<ul>
+ 			<li ng-repeat="badge in trainer.badges">
+ 				{{badge}} - {{$index}} - {{trainerIndex}}
+ 			</li>
+ 		</ul>
+
+ 	</li>
+ </ul>
+
+
+	<!-- JS file will be pulled in when the body is being loaded -->
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
