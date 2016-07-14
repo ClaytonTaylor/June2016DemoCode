@@ -24,6 +24,11 @@ function CheesecakeFactory() {
         price: 13
     }]
 
+    var menuTitle = "Lunch & Dessert"
 
-    return { }
+    // whatever you share, you will return in your factory
+    return {
+        menuItems: menuItems,
+        title: menuTitle
+    }
 }

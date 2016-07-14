@@ -10,13 +10,22 @@
         <script src="app.controller.menu.js"></script>
         <script src="app.controller.pos.js"></script>
         <script src="app.factory.cheesecake.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <style>
 
         </style>
     </head>
     <body class="container">
         <div ng-controller="MenuController as Menu">
-
+            <ul>
+                <h1>{{ Menu.title }}</h1>
+                <li ng-repeat="item in Menu.items">
+                    <!--  Speaking in code: Double mustaches == Angular Expression -->
+                    <!--  using a filter in an expression: {{ vaule | builtInfilterFunction }}-->
+                    {{ item.name }} - <b>{{ item.price | currency }}</b>, calories: {{ item.calories }}
+                </li>
+            </ul>
         </div>
         <div ng-controller="MenuOrderController as MenuOrder">
 

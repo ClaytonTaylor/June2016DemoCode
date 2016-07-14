@@ -5,5 +5,5 @@ angular.module('CakeApp')
     ])
 
 function MenuOrderController(CheesecakeFactory) {
-
+    console.info('MenuOrderController:CheesecakeFactory', CheesecakeFactory)
 }

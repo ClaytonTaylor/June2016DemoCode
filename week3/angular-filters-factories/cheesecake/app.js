@@ -1,1 +1,1 @@
-angular.module('CakeApp', [])
+var MyApp = angular.module('CakeApp', [])
