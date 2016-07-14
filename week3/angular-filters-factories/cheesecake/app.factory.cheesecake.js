@@ -20,7 +20,7 @@ function CheesecakeFactory() {
         name: 'Turtle Cheesecake',
         calories: 1800,
         deliciousness: 10,
-        flavor: 'Chocolate Tutrle',
+        flavor: 'Chocolate Turtle',
         price: 13
     }]
 
