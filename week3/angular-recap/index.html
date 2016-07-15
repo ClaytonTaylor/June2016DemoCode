@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="WeddingBells">
     <head>
-        <title>Angular Recap</title>
+        <title>Divorceration Sensation</title>
         <!-- loading bootstrap -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
@@ -20,8 +20,33 @@
         <!-- BallAndChain maps to the string in our controller declaration in main.js -->
         <!-- YOU MUST SPELL THEM THE SAME -->
         <section ng-controller="BallAndChain as love">
-            <h1>U.S. Divorce Rates</h1>
-            
+            <h2>Metrics</h2>
+            <ul>
+                <li>Average age of couples: {{ love.averageAgeValue }}</li>
+            </ul>
+            <div ng-repeat="couple in love.info">
+                <h3> {{ couple.year }}, duration: {{ couple.duration }}</h3>
+                <table class="table table-striped">
+                    <!-- <caption>You can put a table title here</caption> -->
+                    <thead>
+                        <tr>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Occupation</th>
+                            <th>Education</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="spouses in couple.spouses">
+                            <td>{{ spouses.age }}</td>
+                            <td>{{ spouses.gender }}</td>
+                            <td>{{ spouses.occupation }}</td>
+                            <td>{{ spouses.education }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </section>
     </body>
 </html>
