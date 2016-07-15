@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="WeddingBells">
     <head>
         <title>Angular Recap</title>
+        <!-- loading bootstrap -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
 
@@ -10,12 +11,17 @@
 
         <!--  Leaving the protocol off of a asset will allow the browser to prepend the correct protocol for you -->
         <!--  Bootstrap depends on jQuery, so it MUST be loaded first -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+        <!-- angular app file  -->
         <script src="js/main.js"></script>
     </head>
     <body class="container">
-
+        <!-- BallAndChain maps to the string in our controller declaration in main.js -->
+        <!-- YOU MUST SPELL THEM THE SAME -->
+        <section ng-controller="BallAndChain as love">
+            <h1>U.S. Divorce Rates</h1>
+            
+        </section>
     </body>
 </html>
