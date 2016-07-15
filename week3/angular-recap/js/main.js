@@ -126,13 +126,15 @@ function Splitsies() {
 
 
             // one way to avoid callback hell: NAME YOUR FUNCTIONS
+            // first-class citizens : I can use a function like a variable
             var sum = data.reduce(sumCouples, initialValue);
 
-            // first-class citizens : I can use a function like a variable
+            // outside loop
             function sumCouples (overallTotal, currentCouple) {
                 return overallTotal + currentCouple.spouses.reduce(sumSpouses, initialValue)
             }
 
+            // inside loop
             function sumSpouses(couplesTotal, currentSpouse) {
                 return couplesTotal + currentSpouse.age
             }
