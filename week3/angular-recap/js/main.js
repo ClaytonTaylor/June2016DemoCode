@@ -117,28 +117,24 @@ function Splitsies() {
             // }
 
             // CALLBACK HELLLLLLLL!!!
-            // don't do this!
+            // // don't do this!
             // var sum = data.reduce(function(overallTotal, currentCouple){
             //     return overallTotal + currentCouple.spouses.reduce(function(couplesTotal, currentSpouse){
             //         return couplesTotal + currentSpouse.age
             //     }, initialValue)
             // }, initialValue)
 
-
             // one way to avoid callback hell: NAME YOUR FUNCTIONS
             // first-class citizens : I can use a function like a variable
             var sum = data.reduce(sumCouples, initialValue);
-
             // outside loop
             function sumCouples (overallTotal, currentCouple) {
                 return overallTotal + currentCouple.spouses.reduce(sumSpouses, initialValue)
             }
-
             // inside loop
             function sumSpouses(couplesTotal, currentSpouse) {
                 return couplesTotal + currentSpouse.age
             }
-
             // hey, there are two spouses! which is why we are multiplying by 2
             return sum / (data.length*2)
         }
