@@ -65,7 +65,13 @@ Cat.prototype.meow = function(){
 
 // Constructing Instances
 var rob = new Cat('Rob', 1, 'Purple', 50, 'Long');
-var captainPuddinPaws = new Cat('Captain Puddin` Paws', 9, 'Tapioca', 200, 'No Hair');
+var captainPuddinPaws = new Cat(
+	'Captain Puddin` Paws', 
+	9, 
+	'Tapioca', 
+	200, 
+	'No Hair'
+);
 
 // When we use the new keyword on a class constructor, we are creating new INSTANCES of a CLASS  - INSTANCES are the CONSTRUCTED objects
 
@@ -80,4 +86,18 @@ var captainPuddinPaws = new Cat('Captain Puddin` Paws', 9, 'Tapioca', 200, 'No H
 //		- THIS refers to the object the function is attached to (or being called off of)
 
 
+// ===================== \\
+// ES6 Syntax
 
+class Cat{
+	constructor(name, lives, color, hp, hairLength) {
+		this.name 		= name;
+		this.lives 		= lives;
+		this.color 		= color;
+		this.hp 		= hp;
+		this.hairLength = hairLength;
+	}
+	meow(){
+		console.log(this.name + ' says meow!');
+	}
+}
