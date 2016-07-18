@@ -21,6 +21,11 @@
 // color
 // hp
 // hairLength
+// ==== 
+// meow
+// sleep
+// sneakAttack
+// stalk
 
 
 // Declaring our data in this manner dirties up the global namespace and it very difficult to maintain
@@ -43,8 +48,22 @@ function Cat (name, lives, color, hp, hairLength) {
 	this.color 		= color;
 	this.hp 		= hp;
 	this.hairLength = hairLength;
+
+	// While this method works, it's not a best practice.  If we had 10k cats, we would be creating 10k copies of this function in memory
+	// this.meow = function(){
+	// 	return this.name + ' goes meow!';
+	// }
 }
 
+// the BEST way to attach methods to our class INSTANCES is to use the PROTOTYPE object
+// Every class has a PROTOTYPE and it is SHARED among INSTANCES
+
+Cat.prototype.meow = function(){
+	// This refers to the object that called this method
+	console.log(this.name + ' says meow!');
+}
+
+// Constructing Instances
 var rob = new Cat('Rob', 1, 'Purple', 50, 'Long');
 var captainPuddinPaws = new Cat('Captain Puddin` Paws', 9, 'Tapioca', 200, 'No Hair');
 
