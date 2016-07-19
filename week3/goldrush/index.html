@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html ng-app="GoldRush">
+    <head>
+        <title>Gold Rush!</title>
+        <!-- loading bootstrap -->
+        <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+        <!-- <link rel="stylesheet" href="css/styles.css"> -->
+
+        <!--  https://cdnjs.com/libraries/angular.js/1.5.7 -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+
+        <!--  Leaving the protocol off of a asset will allow the browser to prepend the correct protocol for you -->
+        <!--  Bootstrap depends on jQuery, so it MUST be loaded first -->
+        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+        <!-- angular app file  -->
+        <script>
+            angular.module('GoldRush', [])
+                .controller('MapController', MapController)
+
+
+            // document.body.addEventListener('click', function($event){})
+            function MapController() {
+                this.markers = []
+
+                this.addMarker = function($event) {
+                    console.debug($event)
+                    // var x = $event.clientX
+                    // var y = $event.clientY
+
+                    if($event.target.className !== "icon ng-scope") {
+                        this.markers.push({
+                            position: {
+                                // top:  $event.offsetY,
+                                // left: $event.offsetX
+                                top:  $event.pageY,
+                                left: $event.pageX,
+                                transform: 'translate(-50%, -50%)'
+                            }
+                        })
+                    } else {
+                        this.removeMarker($event)
+                    }
+
+                }
+
+                this.removeMarker = function($event, $index) {
+                    console.debug('Remove marker:', $index);
+                    this.markers.splice($index,1);
+                }
+
+                // memory leaking my controller here... for debugging purposes
+                // window.map = this;
+            }
+        </script>
+        <style>
+            html {
+                width: 1335px;
+                height: 1642px;
+            }
+            body {
+                /*background-image: url("https://raw.githubusercontent.com/RefactorU/exercise-starters/master/client-js/gold-rush/topo-co.jpg");*/
+                background-image: url("/img/topo-co.jpg");
+                background-position: top left;
+                /*background-attachment: fixed;*/
+                /*background-size: 2670px 3284px;*/
+                background-size: 1335px 1642px;
+                background-repeat: no-repeat;
+                position: relative;
+                width: 1335px;
+                height: 1642px;
+                z-index: 0;
+            }
+            .icon {
+                position: absolute;
+                background-color: #F00;
+                height: 20px;
+                border-color: #A00;
+                border-radius: 10px;
+                z-index: 10;
+                width: 20px;
+            }
+        </style>
+    </head>
+    <body ng-controller="MapController as map" ng-click="map.addMarker($event)">
+        <div
+            class="icon"
+            ng-click="marker.removeMarker($event, $index)"
+            ng-repeat="marker in map.markers"
+            ng-style="marker.position">
+        </div>
+    </body>
+</html>
