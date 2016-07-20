@@ -1,0 +1,76 @@
+AJAX
+	- What is it?
+		- Asynchronous Javascript And XML
+		- AJAJ - AJA JSON
+
+		- AJAX allows us to build applications that can send / retrieve data in the background
+			- NO page refreshes
+			- We don't lose state on the webpage
+			- Faster
+				- We're only loading DATA, NOT HTML, CSS, JS, and data
+			- Separation of concerns
+				- Allows you to have a bigger distinction between client (front-end) and server (back-end)
+
+			- Refresh / Back button :(
+			- Need to consider UX even more
+			- Remember : JavaScript can be disabled!
+
+HTTP
+	- We can make HTTP requests to servers
+
+	1. Client sends REQUEST
+		- Asking for data
+		- Sending data to server
+	2. Server does something with the REQUEST
+		- Retrieve info from DB
+		- Add new data to DB
+	3. Server sends down a RESPONSE to the client
+		- Servers MUST send a response
+		- Servers may send data down as well as a status code
+			2-300 range are OK codes
+			4-500 range are BAD codes
+			418 - I'm a teapot
+			420 - Enhance your calm
+	4. Client handles data from the RESPONSE
+
+	All HTTP requests have a METHOD (verbs)
+
+	GET - 
+		- Asking servers for data without modifying anything
+		- Common GET requests
+			: Entering a URL into the browser
+			: Click on a link
+		- GET requests send information in whats called the QUERY STRING
+		http://google.com?search=pokemon
+
+	POST - 
+		 - Sending data to a server to CREATE new data
+		 - POST requests send information in whats called the REQUEST BODY
+		 http://google.com
+		 - Examples of POST
+		 	: Creating a facebook status
+		 	: signing up for a website
+		 	: Adding a recipe to a recipe site
+
+	PUT - 
+		- Sending data to the server to MODIFY existing data
+
+	DELETE - 
+		   - Deleting data
+
+
+	CRUD - NOT a 1:1 relationship with HTTP methods OR REST
+		- Create  - POST
+		- Read    - GET
+		- Update  - PUT
+		- Delete  - DELETE
+
+	https://pokeapi.co/
+	http://kanyerest.xyz/
+	http://kanyerest.xyz/api/album/graduation
+
+	http://pokeapi.co/api/v2/******
+	http://pokeapi.co/api/v2/ability/stench/
+	http://pokeapi.co/api/v2/move/scratch/
+	http://pokeapi.co/api/v2/pokemon/electabuzz/
+	http://pokeapi.co/api/v2/pokemon/125/

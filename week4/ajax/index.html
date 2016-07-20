@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="PokeApp">
+<head>
+	<title>Pokemon</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+</head>
+<body ng-controller="pokeController as pCtrl">
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="text-center"> Pokeymans! </h1>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-xs-4" ng-repeat="pokemon in pCtrl.pokemonData.pokemon_entries">
+			{{pokemon.pokemon_species.name}}
+		</div>
+	</div>
+</div>
+
+
+	
+
+
+
+<script src="pokeapp.js" type="text/javascript"></script>
+<script src="pokeController.pokeapp.js" type="text/javascript"></script>
+<script src="pokeFactory.pokeapp.js" type="text/javascript"></script>
+
+</body>
+</html>
