@@ -1,0 +1,77 @@
+<html ng-app="SpoopyDungeon">
+    <head>
+        <title>Crawlin thru them dungeons</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+    </head>
+    <body ng-cloak ng-controller="DungeonController as dCtrl">
+        <div class="container">
+            <h1 class="text-center">Spoopy Dungeon</h1>
+
+            <!-- Create Player Form -->
+            <form ng-if="!dCtrl.currentPlayer" ng-submit="dCtrl.createPlayer()">
+                <input ng-model="dCtrl.newPlayer.name" type="text" class="form-control" placeholder="Name">
+                <select class="form-control" ng-model="dCtrl.newPlayer.class">
+                    <option disabled selected value="">Choose a Class</option>
+                    <option value="Archer">Archer</option>
+                    <option value="PoopSmith">PoopSmith</option>
+                    <option value="Paladin">Paladin</option>
+                    <option value="Grunt">Grunt</option>
+                    <option value="Trogladyte">Trogladyte</option>
+                </select>
+                <input class="btn btn-success" type="submit" value="Venture Forth!">
+            </form>
+
+            <div class="row">
+
+                <!--Player Info-->
+                <div ng-if="dCtrl.currentPlayer" id="playerInfo" class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="pull-right">{{dCtrl.currentPlayer.name}}</span>
+                        </div>
+                        <div class="col-xs-12">
+                            <span class="pull-right">{{dCtrl.currentPlayer.class}}</span>
+                        </div>
+                        <div class="col-xs-12">
+                            <span class="pull-right">{{dCtrl.currentPlayer.hp}} / 100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Room -->
+                <div ng-if="dCtrl.currentRoom" class="col-xs-12">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3 class="text-center">
+                                {{dCtrl.currentRoom.description}}
+                            </h3>
+                        </div>
+                        <!--Items-->
+                        <div class="col-xs-12">
+                            <h4> You could win : </h4>
+                            <ul>
+                                <li ng-repeat="item in dCtrl.currentRoom.items">
+                                    {{item}}
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Monster-->
+                        <div class="col-xs-12">
+                            <h2>{{dCtrl.currentRoom.monster.type}}</h2>
+                            <h3>{{dCtrl.currentRoom.monster.hp}} / {{::dCtrl.currentRoom.monster.hp}}</h3>
+                            <!--The double colon is for One-Time Data Binding!!  This means the value in the DOM is placed ONCE and will never be updated -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+         <script src="main.js"></script>
+    </body>
+</html>
