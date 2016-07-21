@@ -47,14 +47,14 @@ function ChuckingAwesome(ChuckFactory){
                 // Add an error handler callback to your THEN functions!
                 console.error('ERROR:clickitySplit could not get API response:', error)
 
-                // oh nos!
+                // oh nos! proceed with caution
                 try {
-                    // JSON.parse UNSAFE : always try catch it
                     // unsafe code goes here
                     chuck.norris.is.awesome
                 } catch (error) {
                     console.log("Could not access properties", error)
                 }
+                // NOTE: JSON.parse is UNSAFE : always try catch it
 
                 chuck.quote = ':( no joke found.'
             })
