@@ -19,8 +19,10 @@ function ChuckingAwesome(ChuckFactory){
     chuck.quote = "" // its really to declare default values for controller variables
 
     ChuckFactory.getRandomQuote()
-        .then(function(){
-            
+        .then(function(res){
+            console.debug('getRandomQuote:res', res)
+            chuck.quote = res.data.value.joke
+            // res.data
         })
 }
 
