@@ -8,7 +8,7 @@
     <!-- Controller name must match sting in aap.js when initializing controllers! -->
     <body ng-controller="ChuckingAwesomeController as chuck">
         <h1>{{ chuck.title }}</h1>
-        <button type="button">New Quote</button>
+        <button type="button" ng-click="chuck.clickitySplit()">New Quote</button>
         <p>{{ chuck.quote }}</p>
     </body>
 </html>
