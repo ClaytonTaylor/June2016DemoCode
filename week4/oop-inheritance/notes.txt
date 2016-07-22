@@ -16,3 +16,41 @@ whale IS A mammal
 IS A relationships are a good use case for inheritance.  This is because there are probably common properties or methods they might share
 
 Even if you have an IS A relationship, only use inheritance to save yourself code
+
+Inheritance Chain
+	- The vertical relationship between classes
+	- An object, when we call a method on it, will first access itself to see if it has that method
+	- If that property doesn't exist, it will then look to its PROTOTYPE
+	- If it doesn't exist on its OWN prototype, it will look at that prototype's prototype
+	- Repeat the above step until you hit the Object class in JS
+
+
+	Looking for : castSpell
+	Object
+	|
+	Wizard           >
+	|
+	Necromancer      X      >
+	|
+	wade             X      X
+
+
+	Looking for : castSpell
+	Object
+	|
+	Wizard               >
+	|
+	smandalf             X
+
+	Looking for : toString
+	Object           >
+	|
+	Wizard           X
+	|
+	Necromancer      X
+	|
+	wade             X
+
+
+
+
