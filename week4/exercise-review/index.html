@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="QuoteMe">
+    <head>
+        <title>Inspirational Quotes</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        <script src="/app.js"></script>
+        <style>
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+            blockquote:before,
+            blockquote:after {
+                content: '"'
+            }
+            .author {
+                font-size: 16px;
+                padding-left: 20px;
+                cursor: pointer;
+            }
+            .author:hover {
+                color: chartreuse
+            }
+        </style>
+    </head>
+    <body ng-controller="Quotes as quotes" ng-submit="quotes.addQuote()">
+        <form>
+            <input required class="form-control" type="text" placeholder="Author" ng-model="quotes.author">
+            <textarea required class="form-control" ng-model="quotes.text" placeholder="Add an awesome quote!"></textarea>
+            <label>Rating</label>
+            <select ng-options="rating for rating in [1,2,3,4,5]" ng-model="quotes.rating">
+                <option selected>Rating</option>
+            </select>
+            <button>Submit</button>
+        </form>
+        <ul>
+            <li ng-repeat="quote in quotes.list | filter: quotes.selectedAuthor | orderBy: 'rating'">
+            <!-- <li ng-repeat="quote in quotes.list"> -->
+                <div class="jumbotron">
+                    <!-- <a href="/#/author">{{ quote.author }}</a> -->
+                    <blockquote>
+                        {{ quote.text }}
+                    </blockquote>
+                    <p class="author" ng-click="quotes.filterAuthor(quote.author)">-- <i>{{ quote.author }}</i></p>
+                    <p>Rating: {{ quote.rating }}</p>
+                    <button type="button" ng-click="quotes.burninate(quote)">Burninate</button>
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>

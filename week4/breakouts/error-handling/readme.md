@@ -1,4 +1,5 @@
 # Error Handling (Frontend)
+
 > Now that you have had some practice integrating APIs, it is a good time to talk about error handling (so that you can refer to this lecture when sh*t hits the fan in your midterm and final projects).
 
 ### Purpose
