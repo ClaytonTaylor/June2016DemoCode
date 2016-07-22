@@ -1,0 +1,18 @@
+OOP Inheritance
+
+	- Creating a hierarchy of classes
+
+2 kinds of relationships
+	is a
+	has a
+
+menus HAVE SOME plates
+plates HAVE SOME foodItems
+restaurant HAS A menu
+
+dog IS A mammal
+whale IS A mammal
+
+IS A relationships are a good use case for inheritance.  This is because there are probably common properties or methods they might share
+
+Even if you have an IS A relationship, only use inheritance to save yourself code
