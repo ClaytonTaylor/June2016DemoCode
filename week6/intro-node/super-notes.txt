@@ -1,0 +1,24 @@
+NodeJS
+
+What is it?
+	- JS that can run somewhere OTHER than a browser
+	- Built on the v8 JS engine
+		- Really focused on performance
+		- Garbage collection
+		- Object Property Lookups
+	- Command Line Interface
+
+Node vs Browser
+	- No window object / process.global will be the global namespace
+	- No DOM / no document object
+	- Hardware access (cpus, gps, bluetooth, etc)!
+
+One of the big objects you can access in node is called `process`
+	- Arguments can be passed into a node file when run from the command line
+		- they live at the `argv` property
+
+Module system
+	- How you can access other files / libraries (3rd party modules) / built-in (core) modules
+	- 2 major components
+		- REQUIRE : how you include a module in a file
+		- MODULE.EXPORTS : how you export information FROM a file

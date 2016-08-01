@@ -1,3 +1,41 @@
+
+
+var bottles;
+for (i = 99; i >=1; i-=1) 
+{
+if (i ===1) {
+bottles ="bottle";
+}
+else {
+bottles = "bootles";
+}
+console.log (i+ " "+bottles+" of beer on the wall.");
+if (i < 99) {
+console.log ("");
+console.log (i+ " "+bottles+" of beer on the wall.");
+}
+console.log(i+" "+bottles+" of beer on the wall.");
+}
+console.log(i+ " "+bottles+" of beer.");
+console.log("Take one down.");
+console.log("Pass it around.");
+if (i === 1) 
+{
+console.log(i+" "+bottle+" of beer.");
+console.log("Take it down.")
+console.log("Pass it around");
+{
+if(i===0)
+// }
+{
+console.log ("There are no bottles left ");
+console.log("Time to go to the store");
+console.log("Who is the most sober?");
+}
+}
+}
+
+console.log ("~Joshua Porter");
 angular.module('SpoopyDungeon', []);
 
 angular.module('SpoopyDungeon')
@@ -246,7 +284,7 @@ function dungeonController (DungeonFactory, $interval){
         // hit
         if(Math.random() > 0.1)
         {
-            var dmg = Math.floor(Math.random() * 5) + 1;
+            var dmg = Math.floor(Math.random() * 3) + 5;
             console.log(dCtrl.currentRoom.monster.type + " attacked for " + dmg + " damage!");
 
             // decrememnt monster hp
