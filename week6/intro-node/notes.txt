@@ -20,8 +20,55 @@ One of the big objects you can access in node is called `process`
 Module system
 	- How you can access 
 		1. other files
+			- Reference by filepath
 		2. libraries (3rd party modules)
+			- Reference by name
 		3. built-in (core) modules
+			- Reference by name
 	- 2 major components
 		- REQUIRE : how you include a module in a file
 		- MODULE.EXPORTS : how you export information FROM a file
+
+npm - npm is not a package manager (node package manager)
+
+	When starting a project, you'll be using npm to handle / mange your modules.
+
+	1. run `npm init`
+		- Always first when you start a new node project
+		- creates a package.json file (VERY IMPORTANT)
+			- Holds a record of the node modules your app requires
+			- Nice way to reinstall those modules
+
+	Installing 3rd party modules
+
+		`npm install MODULENAME --save`
+		Common practice is to NOT push node_modules to github
+			- its big and bloaty
+			- reinstall modules very easily
+			- good practice
+
+		.gitignore
+		`touch .gitignore`
+		node_modules
+
+		When pulling down a node project with a package.json, `npm install` will read that package.json and install all modules in the dependencies object
+
+Semantic Versioning
+1.0.2
+MAJOR.MINOR.PATCH
+Major versions will often introduce breaking changes
+Minor versions tend to add new features, without breaking what's currently there
+Patch versions are generally used for bugfixes and very small changes (minor text edits)
+
+//JSON
+var people = [
+	{
+		name : 'bill'
+	}
+]
+//XML
+<people>
+	<person>
+		<name> bill </name>
+	</person>
+</people>
