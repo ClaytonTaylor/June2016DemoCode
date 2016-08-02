@@ -77,3 +77,7 @@ app.post('/', function(req, res){
 app.listen(process.env.PORT||8080, ()=>{
     console.log('Server up!');
 })
+
+// exercise: use https://www.npmjs.com/package/cookie-parser
+// set a cookie on the frontend
+// see it come in on the backend
