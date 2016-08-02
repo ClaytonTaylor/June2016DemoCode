@@ -4,12 +4,9 @@
     <meta charset="utf-8">
     <title>demo site for an angularjs simple website</title>
     <meta name="description" content="">
-
     <!-- twitter bootstrap and additional styles -->
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/main.css">
-
-
   </head>
   <body ng-app="angularjsSimpleWebsiteApp" ng-controller='NavCtrl as nc' class='container'>
 
@@ -28,19 +25,19 @@
     <div ng-view="">
 
         <p title='comes from index.html' >This paragraph will be replaced
-        by the content of one of the view/ files as soon as the angular 
+        by the content of one of the view/ files as soon as the angular
         app is initialized.</p>
 
-        <p>If you read this text in the rendered page, this most probably 
+        <p>If you read this text in the rendered page, this most probably
         means the angular app did not start successfully.</p>
 
-        <p>It may be a good idea to remove all this text and put a spinner 
+        <p>It may be a good idea to remove all this text and put a spinner
         image here.</p>
 
     </div>
 
     <div class="footer" title='comes from index.html'>
-      <p>the common footer 
+      <p>the common footer
         - <a href='https://github.com/kurmanka/angularjs-routing-demo/'>github</a>
       </p>
     </div>
@@ -49,12 +46,11 @@
     <!-- // <script src="bower_components/jquery/jquery.js"></script> -->
 
 
-    <!-- the angular core and the ngRoute module --> 
+    <!-- the angular core and the ngRoute module -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.js"></script>
 
     <!-- the main angular app code -->
     <script src="scripts/app.js"></script>
-
 </body>
 </html>
