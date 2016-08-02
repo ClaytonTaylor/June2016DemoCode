@@ -1,0 +1,34 @@
+Angular - strongly opinionated, mvc, front-end framework
+
+Express.js - fast, unopinionated, node framework
+ - defacto standard for using a framework in node
+
+DNS
+When a url is typed in to an address bar in a browser, that NAME goes to the DNS and they match it to the IP address registered with that NAME
+
+Phonebook - 
+http://google.com => 192.168.0.1
+http://myawesomeportfolio.com => 255.164.40.52
+
+
+
+1. npm init
+2. ignore your node_modules folder
+3. install any 3rd party node modules
+
+3rd party modules today
+express
+body-parser
+
+
+Requests
+	Servers handle requests coming in to them
+	Servers ALWAYS must send down a response
+
+	What servers see : 
+		1. Request Type : GET / POST / PUT / DELETE
+		2. URL          : '/', '/about', '/contact-us'
+
+		GET    '/'
+		POST   '/api/pokeymans'
+		DELETE '/api/users/2837291'
