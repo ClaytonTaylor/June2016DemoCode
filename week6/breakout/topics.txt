@@ -1,0 +1,18 @@
+Cross Origin Resource Sharing (CORS)
+	- Some APIs may block requests coming from origins they don't trust
+		- hitting http://pokeapi.co from http://mysweetsite.com
+	- Solutions
+		- JSONP (JSON with Padding)
+			- appends a script tag with a src attribute
+			- Some APIs support JSONP, but not all of them will
+			- In Angular, the $http service has a jsonp method (GET)
+			$http.jsonp(URL).then(CB);
+
+		- Server-side requests
+			- make http requests from our server
+			- most reliable way to ping an API
+			- Typical flow : make a request on the front-end to your OWN server.  It then makes a request to the API
+
+Common Meta Tags / Values
+Express / Angular app
+Webscraping (search / scraping results)
