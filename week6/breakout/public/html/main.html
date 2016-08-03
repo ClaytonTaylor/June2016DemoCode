@@ -20,7 +20,14 @@
 
 	<button ng-click="hCtrl.getTheNews()">Get News!</button>
 	<ul>
-		<li ng-repeat="story in hCtrl.news">{{story}}</li>
+		<li ng-repeat="story in hCtrl.news">
+			<h3>{{story.title}}</h3>
+			<h4>{{story.desc}}</h4>
+			<img ng-src="{{story.img}}">
+			<p>{{story.topic}}</p>
+
+
+		</li>
 	</ul>
 </body>
 </html>

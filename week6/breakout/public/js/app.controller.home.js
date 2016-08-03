@@ -1,17 +1,30 @@
 // app.controller.home.js
 angular.module('ViceCity')
-	.controller('homeController', [homeController]);
+	.controller('homeController', [
+		'$http',
+		homeController
+	]);
 
-function homeController (){
+function homeController ($http){
 	var hCtrl = this;
 
 	hCtrl.welcomeMessage = 'The only place for sweet, sweet news';
+	
 	hCtrl.getTheNews = function(){
-		console.log('Wow!  So much news!');
-		hCtrl.news = [
-			'Bad things',
-			'Squirrel waterskiing',
-			'More bad things'
-		]
+
+		$http.get('/api/news')
+			.then(function(response){
+				console.log(response);
+				hCtrl.news = response.data;// This is what we res.sent down from the server
+			});
+
+
+
+		// console.log('Wow!  So much news!');
+		// hCtrl.news = [
+		// 	'Bad things',
+		// 	'Squirrel waterskiing',
+		// 	'More bad things'
+		// ]
 	}
 }
