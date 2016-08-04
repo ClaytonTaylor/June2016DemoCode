@@ -34,7 +34,7 @@ Center the following `wrapper` using CSS
 
 #### Exercise 2
 
-Make a 5x5 grid of colored squares using divs and the provided code
+Make a 5x5 grid of colored squares using `<div>` elements and the following code:
 
 ```html
     <html>
