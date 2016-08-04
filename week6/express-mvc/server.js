@@ -37,19 +37,30 @@
 
 */
 
+// server.js
+
 var express = require('express'),
 	bodyParser = require('body-parser'),
 	app = express(),
+	path = require('path'),
 	port = process.env.PORT||1337;
 
 app.use(require('morgan')('dev'));
 
-app.post('*', bodyParser.json(), bodyParser.urlencoded({ extend: true }))
+// good enough
+// app.use(express.static(__dirname + '/public'));
+
+// just in case: for windows
+app.use(express.static(path.join(__dirname,'public')));
+
+app.post('*', bodyParser.json(), bodyParser.urlencoded({ extended: true }))
 
 // requiring a folder with index.js will automatically load index.js
 // similar to:
 // angular.module('myModule').controller('controllerName', controllerNamedFn)
 require('./routes')(app)
+
+// app.use(express.static(path.join(__dirname,'public')));
 
 app.listen(port, function() {
 	console.log('Our MVC Server is up! On port:', port)
