@@ -43,5 +43,6 @@ function addBook (bookInfo){
 module.exports = {
 	findAll   : findAll,
 	findOne	  : findOne,
-	findGenre : findGenre
+	findGenre : findGenre,
+	addBook   : addBook,
 }

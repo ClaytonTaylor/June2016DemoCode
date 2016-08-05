@@ -20,5 +20,7 @@ module.exports = function(app) {
    // /api/books/horror
    // /api/books/teenromance
    // /api/books/porkymans
+
    // Create Book Route
+   app.post('/api/books', API.createBook);
 }

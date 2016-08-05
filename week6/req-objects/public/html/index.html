@@ -9,14 +9,14 @@
 	<script type="text/javascript" src="/js/app.controller.homeCtrl.js"></script>
 
 </head>
-<body ng-controller="homeController">
+<body ng-controller="homeController as hCtrl">
 
 	<h1>Library Time</h1>
 
-	<form>
-		<input placeholder="Title">
-		<input placeholder="Author">
-		<input placeholder="Genre">
+	<form ng-submit="hCtrl.createBook()">
+		<input ng-model="hCtrl.newBook.title" placeholder="Title">
+		<input ng-model="hCtrl.newBook.author" placeholder="Author">
+		<input ng-model="hCtrl.newBook.genre" placeholder="Genre">
 		<input type="submit">
 	</form>
 

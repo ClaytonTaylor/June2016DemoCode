@@ -26,5 +26,7 @@ module.exports = {
 
     createBook : function(req, res){
         // How do we add a new book using data posted from the client?
+        Library.addBook( req.body );
+        res.status(200).send('OK');
     },
 }
