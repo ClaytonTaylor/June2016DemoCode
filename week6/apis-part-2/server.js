@@ -12,6 +12,7 @@ app.use( logger('dev') );
 // mount bodyParser (horizontally) across all post requests
 app.post('*', bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 
+// vetically mounting a file server, pointing to public
 app.use(express.static(path.join(__dirname,'public')));
 
 // set variable in the app objects
