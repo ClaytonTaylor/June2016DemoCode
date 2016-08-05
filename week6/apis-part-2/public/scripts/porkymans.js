@@ -22,14 +22,13 @@ function Pokedex($http, $location, PorkyMans) {
 
         PorkyMans.grabAPokemon(dex.pokemonName)
             .then(dex.submitSuccess, dex.submitError);
-
-        dex.pokemonName = '';
     }
 
     dex.submitSuccess = (res) => {
         console.debug('dex.submitSuccess:', res.data);
 
         dex.currentPokemon = res.data;
+        dex.pokemonName = '';
     }
 
     dex.submitError = (err) => {
@@ -48,6 +47,8 @@ function Pokedex($http, $location, PorkyMans) {
 
         dex.currentPokemon.evolvesTo =
             dex.currentEvoChain.chain.evolves_to[0].evolves_to[0].species.name;
+
+        console.log()
     }
 
     dex.getChainError = (err) => {

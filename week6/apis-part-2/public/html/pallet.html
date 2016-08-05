@@ -6,26 +6,46 @@
     	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
         <script src="/scripts/porkymans.js"></script>
         <style>
+            p {
+                margin-top: 10px;
+            }
+
             .form-control {
                 width: 200px;
             }
+
+            #results {
+                margin: 20px 0;
+            }
         </style>
     </head>
-    <body ng-controller="Pokedex as dex">
-        <h1>{{ dex.currentUrl }}</h1>
+    <body ng-controller="Pokedex as dex" class="container">
+        <!-- <h1>{{ dex.currentUrl }}</h1> -->
         <h2>Hello squirrel from pallet town!</h2>
 
         <form class="form-inline" ng-submit="dex.submit()">
-            <input class="form-control" type="text" ng-model="dex.pokemonName" placeholder="Enter your Porkyman">
-            <button class="btn btn-info" type="submit">Catch him!</button>
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="dex.pokemonName" placeholder="Enter your Porkyman">
+            </div>
+            <button class="btn btn-default" type="submit">Catch him!</button>
         </form>
 
-        <section id="results">
-            <ul>
-                <li>{{ dex.currentPokemon.name }}</li>
-            </ul>
-            <button ng-if="dex.currentPokemon.name" class="btn btn-primary" ng-click="dex.getChain()">Evolve {{ dex.currentPokemon.name }}</button>
-            <p ng-if="dex.currentPokemon.evolvesTo">Evolved to {{ dex.currentPokemon.evolvesTo }}!</p>
+        <section id="results" ng-if="dex.currentPokemon.name" >
+            <dl>
+                <dt>Name<dt>
+                <dd>{{ dex.currentPokemon.name }}</dd>
+                <dt>Color<dt>
+                <dd>{{ dex.currentPokemon.color.name }}</dd>
+                <dt>Shape<dt>
+                <dd>{{ dex.currentPokemon.shape.name }}</dd>
+                <dt>Habitat<dt>
+                <dd>{{ dex.currentPokemon.habitat.name }}</dd>
+
+            </dl>
+            <div id="evolve" ng-show="dex.currentPokemon.name">
+                <button class="btn btn-primary" ng-click="dex.getChain()">Evolve {{ dex.currentPokemon.name }}!</button>
+                <p ng-show="dex.currentPokemon.evolvesTo">Evolved to {{ dex.currentPokemon.evolvesTo }}!</p>
+            </div>
         </section>
     </body>
 </html>
