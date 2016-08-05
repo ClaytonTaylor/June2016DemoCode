@@ -47,7 +47,7 @@ function Pokedex($http, $location, PorkyMans) {
         dex.currentEvoChain = res.data;
 
         dex.currentPokemon.evolvesTo =
-            dex.currentEvoChain.evolves_to[0].species.name;
+            dex.currentEvoChain.chain.evolves_to[0].evolves_to[0].species.name;
     }
 
     dex.getChainError = (err) => {

@@ -24,9 +24,8 @@
             <ul>
                 <li>{{ dex.currentPokemon.name }}</li>
             </ul>
-            <button class="btn btn-primary" ng-click="dex.getChain()">Evolve {{
-                dex.currentPokemon.evolvesTo
-            }}</button>
+            <button ng-if="dex.currentPokemon.name" class="btn btn-primary" ng-click="dex.getChain()">Evolve {{ dex.currentPokemon.name }}</button>
+            <p ng-if="dex.currentPokemon.evolvesTo">Evolved to {{ dex.currentPokemon.evolvesTo }}!</p>
         </section>
     </body>
 </html>
