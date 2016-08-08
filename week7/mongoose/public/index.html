@@ -1,9 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CoolCars">
     <head>
-        <title>Home</title>
+        <title>Cool Cars!</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        <style>
+            html, body {
+                background-color: #efefef;
+            }
+
+            .form-control {
+                margin: 10px 0;
+            }
+        </style>
+        <script>
+            angular.module('CoolCars', [])
+                .controller('CarForm', CarForm)
+                .factory('CarFactory', CarFactory);
+
+            CarForm.$inject = ['CarFactory'];
+            CarFactory.$inject = ['$http'];
+
+            function CarForm(CarFactory) {
+                var form = this;
+
+                form.newCar = {}; // eventually becomes req.body on the backend
+                form.newCarId;
+
+                form.submitCar = function() {
+                    CarFactory.create(form.newCar)
+                        .then(form.submitCarSucess, form.submitCarError);
+                }
+
+                form.submitCarSucess = function(res) {
+                    console.info('New Car Created!', res.data);
+
+                    form.newCarId = res.data._id;
+                }
+            }
+
+            function CarFactory($http) {
+                return {
+                    create: function(carData) {
+                        return $http.post('/api/create', carData)
+                    }
+                }
+            }
+        </script>
     </head>
-    <body>
-        <h1>Now you know!</h1>
+    <body class="container">
+        <form ng-controller="CarForm as form" ng-submit="form.submitCar()">
+            <!-- make
+            model
+            year
+            color
+            hyperDrive
+            features
+            timeAdded -->
+            <input class="form-control" type="text" ng-model="form.newCar.make" placeholder="Make"/>
+            <input class="form-control" type="text" ng-model="form.newCar.model" placeholder="Model"/>
+            <input class="form-control" type="number" ng-model="form.newCar.year" placeholder="Year"/>
+            <input class="form-control" type="text" ng-model="form.newCar.color" placeholder="Color"/>
+            <input type="checkbox" ng-model="form.newCar.hyperDrive"/> Has Hyper Drive? <br><br>
+            <button type="submit" class="btn btn-default">Create a new car!</button>
+
+            <p class="alert alert-info">{{ form.newCarId }}</p>
+        </form>
     </body>
 </html>

@@ -2,11 +2,12 @@ var Car = require('../models/car');
 
 module.exports = {
     create: (req, res) => {
-        if( !req.body.make ) {
-            return res.status(400).json({
-                message: 'Bad payload'
-            });
-        }
+        // a way to quickly bounce bad payloads, prefer model validation over this method
+        // if( !req.body.make ) {
+        //     return res.status(400).json({
+        //         message: 'Bad payload'
+        //     });
+        // }
 
         var newCar = new Car(req.body);
 

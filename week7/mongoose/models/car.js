@@ -18,7 +18,7 @@ var Car = mongoose.model('Car', {
     year: Number,
     color: String,
     hyperDrive: Boolean,
-    features: [String],
+    // features: [String],
     timeAdded: {
         type: Number,
         default: () => {
