@@ -8,17 +8,23 @@
 
 // console.log(require); // <=== there is stuff in here
 
-var mongoose = require('moongoose'); // creates a &pointer!
+var mongoose = require('mongoose'); // creates a &pointer!
 
 // first param = name of model,
 // second param = json object describing ze SCHEMA
 var Car = mongoose.model('Car', {
     make: String,
-    model: String,
+    model: { type: String, required: true },
     year: Number,
     color: String,
     hyperDrive: Boolean,
-    features: [String]
+    features: [String],
+    timeAdded: {
+        type: Number,
+        default: () => {
+            return Date.now(); // GMT time in milliseconds, go look it up
+        }
+    }
     // features: Array
 });
 
