@@ -1,0 +1,70 @@
+MongoDB!
+
+
+PATRICKS NOTES HERE
+
+
+
+MongoDB - HuMONGOus DB
+    Written in C++, very fast DOCUMENT oriented storage
+    Built in support for scaling (sharding, clustering)
+    Flat-file database - data is stored in flat, BSON files
+
+MongoDB Terminology / Structure
+DATABASE - where all the smaller mongodb constructs are stored.  Database is kind of like a namespace
+
+COLLECTIONS - a DATABASE may have multiple COLLECTIONS.  COLLECTIONS are analogous in many ways to arrays
+            - SQL Table
+
+DOCUMENTS - COLLECTIONS may have multiple DOCUMENTS.  DOCUMENTS are analogous in many ways to objects
+          - SQL Row
+
+DB  : bijansFunHouseDB
+COL : users, employees     
+DOC : { name : 'bill' }
+
+users => [{name : 'bill'}, {}, {}, {}]
+
+
+Installation on Mac
+   - Homebrew http://brew.sh
+   - brew install mongodb
+
+Installation on Windows
+    - GUI installer
+    - https://www.mongodb.org/downloads
+    - Windows Server 2008 R2 64-bit and later, with SSL support
+    - Export the bin/ folder inside of where MongoDB is installed to your path
+
+
+Using MongoDB
+    FIRST TIME - MAKE SURE YOU EXIT YOUR TERMINAL OR COMMAND LINE AND RESTART IT
+
+    2 Major commands
+     
+        - mongod (may need sudo)
+            - starts a server and listens for DB connections on port 27017
+            - YOU MUST BE RUNNING THIS COMMAND TO USE MONGODB
+        
+        - mongo
+            - gets you into the mongo SHELL
+            - Command line interface for interacting with mongodb
+
+MongoShell commands
+    show dbs      : lists databases stored in the mongoDB data directory you connected to using the mongod command (ls for mongodb)
+
+    use <dbname>  : connects to a database / preps mongodb to create a database (mongodb won't actually formally create a database until there is data being stored in it).  This command also sets context for many other commands
+
+    show collections : lists the collections in the database
+
+    db.<collectionname>.insert(DOCUMENT) : This will insert a DOCUMENT into the COLLECTION.  Will create the collection if it doesn't exist
+
+    db.<collectionname>.find(QUERY)      : This will find DOCUMENTS in the COLLECTION that match QUERY parameters
+
+    db.<collectionname>.update(QUERY, UPDATE) : Updates documents that match the query
+
+    db.<collectionname>.remove(QUERY)  : Deletes documents from a collection
+
+    db.<collectionname>.drop()   : Destroys the collection and all documents inside
+
+    db.dropDatabase()            : Destroy the entire database you are 'using'
