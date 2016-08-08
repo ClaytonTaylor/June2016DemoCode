@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/RefactorU/June2016DemoCode/issues"
   },
-  "homepage": "https://github.com/RefactorU/June2016DemoCode#readme"
+  "homepage": "https://github.com/RefactorU/June2016DemoCode#readme",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    }
+  }
 }
