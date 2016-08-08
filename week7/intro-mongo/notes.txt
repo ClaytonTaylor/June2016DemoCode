@@ -1,9 +1,37 @@
 MongoDB!
 
 
-PATRICKS NOTES HERE
+MongoDb is a no SQL database
 
+ - Don't use SQL to query it
+ - Structured query language
+ - In Mongo, you'll pass query objects
 
+SQL vs NoSQL
+
+ SQL
+   - Relational Database
+   - Stored in a flat tabular system (tables)
+   - Much like a spreadsheet
+   - Very structured
+     - Must define schema (structure of data)
+   - Typically scales vertically
+     - Verticaly scaling is increasing power on a single machine
+   - Query language
+
+ NoSQL
+
+   - Flat, schemaless database
+     - weak / no relationships
+   - Typically scales horizontally
+     - More machines (helps distribute load)
+     - NoSQL db were created to overcome these limitations of vertical scaling
+   - Data can be much more dynamic
+     - Change structure on the fly
+     - Reduce the chance of data migration
+     - Resembles JSON data called BSON
+   - Faster than SQL
+     - No / weak relationships
 
 MongoDB - HuMONGOus DB
     Written in C++, very fast DOCUMENT oriented storage
@@ -64,6 +92,9 @@ MongoShell commands
     db.<collectionname>.update(QUERY, UPDATE) : Updates documents that match the query
 
     db.<collectionname>.remove(QUERY)  : Deletes documents from a collection
+
+
+    Super destructive
 
     db.<collectionname>.drop()   : Destroys the collection and all documents inside
 
