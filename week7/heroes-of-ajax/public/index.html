@@ -13,13 +13,13 @@
     <body ng-controller="heroesController as hCtrl" class="container">
         
 
-        <form>
+        <form ng-submit="hCtrl.makeAHero()">
             <input class="form-control" ng-model="hCtrl.newHero.name" placeholder="Name">
 
-            <input class="form-control" ng-model="hCtrl.newHero.powers"
+            <input ng-repeat="power in hCtrl.newHero.powers track by $index" class="form-control" ng-model="hCtrl.newHero.powers[$index]"
             placeholder="Power">
 
-            <input class="form-control" ng-model="hCtrl.newHero.weaknesses"
+            <input ng-repeat="weak in hCtrl.newHero.weaknesses track by $index" class="form-control" ng-model="hCtrl.newHero.weaknesses[$index]"
             placeholder="Weakness">
 
             <input class="form-control" type="checkbox" ng-model="hCtrl.newHero.masked">
@@ -28,8 +28,20 @@
             placeholder="Origin">
 
             <input type="submit">
-        </form>
 
+            <div ng-click="hCtrl.pwExtra('powers')" class="btn btn-info"> Add Power </div>
+            <div ng-click="hCtrl.pwExtra('weaknesses')" class="btn btn-info"> Add Weakness </div>
+        </form>
+    
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Our Heroes : </h1>
+        </div>
+        <div ng-repeat="hero in hCtrl.heroList" class="col-xs-12">
+            {{ hero.name }}
+        </div>
+    </div>
 
     </body>
 </html>
