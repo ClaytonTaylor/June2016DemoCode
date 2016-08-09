@@ -1,6 +1,9 @@
 angular.module('HeroesOfAjax')
     .controller('heroesController', heroCtrl)
 
-function heroCtrl (){
+heroCtrl.$inject = ['apiFactory']
+
+function heroCtrl (apiFactory){
     var hCtrl = this;
+    console.log(apiFactory)
 }
