@@ -26,6 +26,15 @@ module.exports = {
         else {
             // No id in the url, create a new document
             var newHero = new Hero(req.body);
+
+            // Or, if req.body doesn't match your schema - manually construct the object you pass to new Hero
+            // var newHero = new Hero({
+            //     name : req.body.firstName + ' ' + req.body.lastName,
+            //     powers : req.body.powers.split(', '),
+            //     weaknesses : someOtherObj.stuff,
+                
+            // })
+
             // Save hero to DB
             newHero.save(function(err, hero){
                 if(err){
