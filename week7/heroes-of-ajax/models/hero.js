@@ -14,7 +14,6 @@ var heroSchema = mongoose.Schema({
     origin:     {type : String},
 });
 
-
 // export the model
 module.exports = mongoose.model('Hero', heroSchema, 'heroes'); // Our entrypoint into the heroes collection in the DB
 // heroes
