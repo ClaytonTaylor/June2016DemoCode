@@ -6,8 +6,6 @@ module.exports = {
         });
 
         res.render('home.html', req.body);
-
-
     },
     dashboard: (req, res) => {
         // you can totally reuse html files as templates!
@@ -20,5 +18,5 @@ module.exports = {
             pageTitle: 'Dashboard',
             sectionTitle: 'Welcome to the dashboard!'
         });
-    } 
+    }
 }
