@@ -1,11 +1,13 @@
 var mongoose = require('mongoose'),
     // Schema = mongoose.Schema,
-    BeerSchema = new mongoose.Schema('Beer', {
-        name: String,
-        IBUs: Number,
-        ingredients: [String],
+    BeerSchema = new mongoose.Schema({
+        // ingredients: [String],
+        // forcing uniqueness and being required makes this more RESTful
+        // ... because idempotent
+        name: { type: String, required: true, unique: true },
         price: Number,
         calories: Number,
+        IBUs: Number,
         fluidOZ: {
             type: Number,
             default: 12
