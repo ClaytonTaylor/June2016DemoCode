@@ -37,6 +37,16 @@ function heroCtrl (apiFactory){
     }
 
 
+    hCtrl.retrieveHQs = function(){
+        apiFactory
+            .getHQs()
+            .then(function(response){
+                hCtrl.hqList = response.data;
+            });
+    }
+    
+    hCtrl.retrieveHQs();
+
     hCtrl.makeAnHQ = function () {
         apiFactory
             .createHQ(hCtrl.newHQ)
