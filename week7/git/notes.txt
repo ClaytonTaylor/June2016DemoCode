@@ -1,0 +1,32 @@
+Git!
+What is Git?
+    - server that holds software
+    - can fetch that software
+What is a repo?
+    - Historical timeline of your development
+
+Commit References
+    Absolute
+        Commit ID  - All commits have a unique ID
+        HEAD       - currently checkedout commit
+        Branchname - HEAD inside of branch
+    
+    Relative
+        git checkout HEAD - does nothing, just going to where you're currently checked out
+
+        git checkout HEAD~
+            ~ - Vertical ancestry
+        git checkout HEAD^
+            ^ - Horizontal ancestry (# parent)
+
+One local branch
+    - Where are you?
+        - git status
+    - What's come before?
+        - git log
+        - git log --oneline --all --graph --decorate
+    - What's changed?
+        - git diff [commitID1] [commitID2]
+
+
+
