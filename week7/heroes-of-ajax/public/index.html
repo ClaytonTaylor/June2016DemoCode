@@ -12,7 +12,7 @@
     </head>
     <body ng-controller="heroesController as hCtrl" class="container">
         
-
+        <h1>Hero Form</h1>
         <form ng-submit="hCtrl.makeAHero()">
             <input class="form-control" ng-model="hCtrl.newHero.name" placeholder="Name">
 
@@ -33,6 +33,18 @@
             <div ng-click="hCtrl.pwExtra('weaknesses')" class="btn btn-info"> Add Weakness </div>
         </form>
     
+        <h1>Headquarter Form</h1>
+
+        <form ng-submit="hCtrl.makeAnHQ()">
+            <input class="form-control" ng-model="hCtrl.newHQ.name", placeholder="Name">
+            <input class="form-control" type="checkbox" ng-model="hCtrl.newHQ.butler", placeholder="Butler">
+            <input class="form-control" ng-model="hCtrl.newHQ.moatType", placeholder="Moat Type">
+             <input class="form-control" ng-repeat="amenity in hCtrl.newHQ.amenities track by $index" ng-model="hCtrl.newHQ.amenities[$index]", placeholder="Amenity">
+             
+             <input type="submit">
+             <div ng-click="hCtrl.addAmenity()" class="btn btn-primary"> Add Amenity </div>
+        </form>
+
 
     <div class="row">
         <div class="col-xs-12">

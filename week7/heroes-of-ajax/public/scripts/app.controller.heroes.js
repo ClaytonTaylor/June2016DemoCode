@@ -9,13 +9,16 @@ function heroCtrl (apiFactory){
         powers     : [''], // starting with an empty array element so the ngRepeat will show HTML
         weaknesses : ['']
     };
+    hCtrl.newHQ = {
+        amenities : ['']
+    }
 
     hCtrl.retrieveHeroes = function(){
         apiFactory
             .getHeroes()
             .then(function(response){
                 hCtrl.heroList = response.data;
-            })
+            });
     }
     hCtrl.retrieveHeroes();
     // console.log(apiFactory)
@@ -31,6 +34,19 @@ function heroCtrl (apiFactory){
 
     hCtrl.pwExtra = function (which) {
         hCtrl.newHero[which].push('');
+    }
+
+
+    hCtrl.makeAnHQ = function () {
+        apiFactory
+            .createHQ(hCtrl.newHQ)
+            .then(function(response){
+                console.log(response);
+            });
+    }
+
+    hCtrl.addAmenity = function(){
+        hCtrl.newHQ.amenities.push('');
     }
 
 }
