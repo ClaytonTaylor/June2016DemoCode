@@ -7,6 +7,9 @@ var hqSchema = mongoose.Schema({
     amenities: {type: Array},
     butler:    {type: Boolean},
     moatType:  {type: String},
+    // heroes : [
+    //     {type : mongoose.Schema.ObjectId, ref : 'Hero'}
+    // ]
 
     // constructionDate : {type : Date}
     // Sample Address

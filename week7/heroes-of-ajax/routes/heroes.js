@@ -10,9 +10,26 @@ var Hero = require('../models/hero');
 module.exports = {
     get : (req, res) => {
         // Read
-        Hero.find({}, function(err, heroes){
-            res.json(heroes);
-        });
+
+        // Without Populate
+        // Hero.find({}, function(err, heroes){
+        //     res.json(heroes);
+        // });
+
+        // With Populate
+        Hero.find({})
+            .populate('headquarters') // Property name of a Hero doc we want to populate
+            .exec(function(err, heroes){
+                res.json(heroes);
+            }); // exec gives us a place to pass in the callback function find used to take.  Like a 'then' method for mongoose
+
+        // Populate
+        // {headquarters : 8u58487909234u}
+        // {headquarters : {
+        //     _id : 8u58487909234u,
+        //     name : 
+        //     moatType
+        // }}
     },
     // /api/heroes
     // /api/heroes/:id
