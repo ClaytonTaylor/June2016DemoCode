@@ -10,12 +10,17 @@ var port = process.env.PORT || 1337,
 app.use(logger('common')); // normally dev, but look, there's more logging formats!
 app.use(express.static(path.join(__dirname,'public')));
 
+console.log(process.env);
+
 // setting up twitter stram API
 var twitterStream = nodeTweetStream({
-    consumer_key: 'sJneuy1u9qyoYkGpKDmcAKxws',
-    consumer_secret: 'IPctD7mhqfCcKHlI1hTSUxdN2lnvW7RabcVaCP6CwEznJ7hrxa',
-    token: '224448389-ozbTHIvxFBe4AgkPs4PxpvzaHUFhkN5cXjApqLrL',
-    token_secret: 'zsVke8fi2gAVnXgnGJFSh9mU5c7LMXR4WhS9Zb7tOTBfp'
+    consumer_key    : process.env.TWITTER_CONSUMER_KEY, // goes in $HOME/.bashrc, $HOME/.profile
+    consumer_secret : process.env.TWITTER_CONSUMER_SECRET,
+    token           : process.env.TWITTER_TOKEN,
+    token_secret    : process.env.TWITTER_TOKEN_SECRET
+    // make sure you source your dotfiles!
+    // $ source $HOME/.bashrc
+    // $ source $HOME/.profile
 });
 
 // going to track TRUMP tweets! (ugh)
