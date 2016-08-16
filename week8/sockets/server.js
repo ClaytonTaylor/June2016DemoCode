@@ -10,10 +10,12 @@ var port = process.env.PORT || 1337,
 app.use(logger('common')); // normally dev, but look, there's more logging formats!
 app.use(express.static(path.join(__dirname,'public')));
 
-console.log(process.env);
+// See your environment variables...
+// console.log(process.env);
 
 // setting up twitter stram API
 var twitterStream = nodeTweetStream({
+    // get these from [ apps.twitter.com ]!
     consumer_key    : process.env.TWITTER_CONSUMER_KEY, // goes in $HOME/.bashrc, $HOME/.profile
     consumer_secret : process.env.TWITTER_CONSUMER_SECRET,
     token           : process.env.TWITTER_TOKEN,
