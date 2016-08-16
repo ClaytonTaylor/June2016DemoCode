@@ -1,0 +1,15 @@
+{
+  "name": "https-tsl",
+  "version": "1.0.0",
+  "description": "> SSL (Secure Socket Layer), it is protocol developed by Netscape way back when (1995) and was primarily used to stop \"man-in-the-middle-attacks\". (HTTPS) encrypts data/packets as they travel back and forth from client to server. After version, SSL was rebranded as TSL (transport security layer) v1.0 for political reasons. Today, most websites are using TSL 1.2. Version 1.3 is currently in progress.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
