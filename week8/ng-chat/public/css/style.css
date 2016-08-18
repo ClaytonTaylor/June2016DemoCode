@@ -1,0 +1,25 @@
+.loggedInUsers {
+    border: 2px solid black;
+    min-height: 20px;
+    width: 20vw;
+    float: right;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.chatHistory {
+    border: 2px solid black;
+    min-height: 500px;
+    width: 70vw;
+    overflow: hidden;
+}
+
+.chatBox {
+    height: 40px;
+    width: 70vw;
+    font-size: 26px;
+}
+
+.text-center {
+    text-align: center;
+}

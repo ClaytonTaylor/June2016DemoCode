@@ -1,0 +1,9 @@
+Web Sockets - another protocol we can use to make connections between a client and server
+
+limitation of HTTP: all communication between client and server must follow request:response pattern.
+
+long-polling: the client constantly asks the server if there are updates.
+
+Websockets let us create a long-lasting connection. 
+
+socket.io is a node.js library for implementing websockets. it has a client-side component, and a server-side component.
