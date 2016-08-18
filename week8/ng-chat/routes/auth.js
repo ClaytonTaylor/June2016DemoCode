@@ -22,7 +22,7 @@ module.exports = {
         }, (err, user) => {
             if( err ) {
                 console.error('MongoDB error:'.red, err);
-                res.status(500).json(errors.general);
+                return res.status(500).json(errors.general);
             }
             if( !user ) {
                 // forbidden
@@ -36,7 +36,7 @@ module.exports = {
                     // matched will be === true || false
                     if( bcryptErr ) {
                         console.error('MongoDB error:'.red, err);
-                        res.status(500).json(errors.general);
+                        return res.status(500).json(errors.general);
                     } else if ( !matched ) {
                         // forbidden, bad password
                         console.warn('Password did not match!'.yellow);
@@ -52,7 +52,10 @@ module.exports = {
     },
     register: (req, res) => {
         console.info('Register payload:'.cyan, req.body);
-
+        // {
+        //     username : '!!',
+        //     password : '!!'
+        // }
         var newUser = new User(req.body);
 
         newUser.save((err, user) => {
@@ -66,16 +69,16 @@ module.exports = {
             }
         });
     },
-    // Auth middleware functions, grouped
-    middlewares: {
-        session: (req, res, next) => {
-            if( req.session.user ) {
-                console.info('User is logged in, proceeding to dashboard...'.green);
-                next();
-            } else {
-                console.warn('User is not logged in!'.yellow)
-                res.redirect('/login');
-            }
-        }
-    }
+    // // Auth middleware functions, grouped
+    // middlewares: {
+    //     session: (req, res, next) => {
+    //         if( req.session.user ) {
+    //             console.info('User is logged in, proceeding to dashboard...'.green);
+    //             next();
+    //         } else {
+    //             console.warn('User is not logged in!'.yellow)
+    //             res.redirect('/login');
+    //         }
+    //     }
+    // }
 }

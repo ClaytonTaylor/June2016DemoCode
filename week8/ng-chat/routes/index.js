@@ -14,8 +14,13 @@ module.exports = (app) => {
     app.post('/login', Auth.login);         // login form submission
     app.post('/register', Auth.register)    // register form submission
 
-    app.get('/api/me', (req, res) => {
+    
+    // app.use( app.get('isAuth') ); // Vertical Middleware
+
+    app.get('/api/me',  (req, res) => {
         // Send down the logged in user
         res.send({user:req.session.user})
     })
+
+
 }

@@ -1,12 +1,12 @@
-var express = require('express')
-var mongoose = require('mongoose')
-var bodyParser = require('body-parser')
-var sessions = require('client-sessions') // encrypted cookies!
-var Routes = require('./routes')
+var express = require('express');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var sessions = require('client-sessions'); // encrypted cookies!
+var Routes = require('./routes');
 
-var app = express()
+var app = express();
 
-mongoose.connect('mongodb://localhost/chat')
+mongoose.connect('mongodb://localhost/chat');
 
 
 app.use(express.static(__dirname + '/public'));
@@ -14,6 +14,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /** Express Session Setup **/
+
+// function makeObj (key, val){
+//     var obj = {}
+//     obj[key] = val
+//     return obj
+// }
+// makeObj('city', 'Boulder')
+// app.specialUserObj.sessionMiddleware
+
 app.set('sessionMiddleware', sessions({
     cookieName: '_mean-auth', // front-end cookie name
     secret: 'DR@G0N$', // the encryption password : keep this safe
@@ -25,6 +34,7 @@ app.set('sessionMiddleware', sessions({
         secure: false       // when true, cookie will only be read when sent over HTTPS
     }
 }))
+
 app.use( app.get('sessionMiddleware') );
 
 // Middleware to prevent someone from going to certain pages if they are not logged in
