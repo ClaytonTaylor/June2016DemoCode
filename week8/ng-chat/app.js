@@ -47,26 +47,38 @@ app.set('isAuth', (req, res, next)=>{
     }
 })
 
+app.set('isAuthAdmin', (req, res, next)=>{
+    if(req.session.user && req.session.user.role === 'admin'){
+        next()
+    }
+    else{
+        res.send('You\'re not an admin!');
+    }
+})
+
 Routes(app)
 
+
+
 // app.listen RETURNS a server object. Normally we don't care, but we need it this time for our socket server.
-app.server = app.listen(process.env.PORT || 3000)
-
-
+app.set('server', app.listen(process.env.PORT || 3000))
 
 var io = require("socket.io")
 var loggedInUsers = {}
-var socketServer = io(app.server)
+var socketServer = io(app.get('server'))
 
 
 // express middleware
 // function(req, res, next)
 
+
 // socket.io middleware
 // function(socket, next)  - socket object has socket.request
 
+// This ties our socket requests to our sessions
 socketServer.use(function(socket, next){
     app.get('sessionMiddleware')(socket.request, {}, next);
+    // SessionMiddleware would normally only get run on express routes.  Socket routes wouldn't normally use ANY express middledware.  We want access to a user's session here so we are manually calling it to put that same session info on the socket request object.
 })
 
 // socket servers can proactively emit messages for no reason!
@@ -77,11 +89,15 @@ socketServer.on("connection", function(socket){
     // make sure the socket connection is authenticated.  Don't want anon users in our chat room
 
     if ( socket.request.session && socket.request.session.user ) {
-        // this is the session user!
+        // this is the session user!  This is the user info stored in the cookie that is decrypted by sessionMiddleware
         var socketUser = socket.request.session.user
         console.log('USER', socketUser)
 
         loggedInUsers[socketUser.username] = true;
+        // {
+        //     bob : true,
+        //     jill : true
+        // }
         socketServer.emit('loggedInUsers', loggedInUsers)
 
 

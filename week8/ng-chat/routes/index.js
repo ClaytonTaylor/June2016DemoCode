@@ -22,5 +22,8 @@ module.exports = (app) => {
         res.send({user:req.session.user})
     })
 
+    app.get('/api/sensitiveInfo', app.get('isAuthAdmin'), (req, res) =>{
+        res.send('Super secret admin info')
+    })
 
 }
